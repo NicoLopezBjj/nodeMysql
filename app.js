@@ -15,7 +15,13 @@ const dbConfig={
 
 const conexion = mysql.createConnection(dbConfig)
 
-
+conexion.connect((error)=>{
+    if(error){
+        console.log('error al conectar')
+    }else{
+        console.log('conexion exitosa')
+    }
+})
 
 app.get('/',(res,req)=>{
     res.send('<h1>Hola mundo</h1>')
